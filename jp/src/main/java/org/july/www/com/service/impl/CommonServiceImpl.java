@@ -7,7 +7,7 @@ import org.july.www.com.service.CommonService;
 import org.july.www.com.vo.UserVO;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(value="commonService")
 public class CommonServiceImpl implements CommonService{
 	
 	@Resource(name="commonDAO")
