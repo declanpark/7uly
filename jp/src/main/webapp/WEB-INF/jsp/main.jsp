@@ -7,12 +7,13 @@
 <title>MAIN</title>
 </head>
 <script type="text/javascript" src="<c:out value='/resources/js/jquery/1.12.4/jquery-1.12.4.min.js'/>"></script>
+<script type="text/javascript" src="<c:out value='/resources/js/ax5/ax5ui.all.min.js'/>"></script>
 <script type="text/javascript">
 	
 </script>
 <body>
 	<h1>MAIN 페이지 입니다.</h1>
- 
+ 	
 </body>
 </html>
 
