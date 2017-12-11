@@ -1,7 +1,9 @@
 package org.july.www.com.service;
 
+import java.util.List;
+
 import org.july.www.com.vo.UserVO;
 
 public interface CommonService {
-	public UserVO selectUser(UserVO userVO);
+	public List<UserVO> selectUser(UserVO userVO);
 }

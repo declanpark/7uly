@@ -12,15 +12,12 @@
 	</bean>
 
 	<!-- sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" /> <!-- MyBatis 설정 파일의 위치를 지정합니다. -->
 		<property name="configLocation" value="classpath:/mybatis/config/mybatis-config.xml" /> <!-- SQL 파일의 위치를 지정합니다. -->
-		<property name="mapperLocations" value="classpath:/mybatis/sql/*_SQL.xml" />
+		<property name="mapperLocations" value="classpath:/mybatis/sql/**/*_SQL.xml" />
 	</bean>
-	<!-- sqlSession -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
+	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	  <property name="dataSource" ref="dataSource" />
 	</bean>

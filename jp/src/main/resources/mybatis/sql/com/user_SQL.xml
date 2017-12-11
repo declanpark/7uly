@@ -4,20 +4,25 @@
 <mapper namespace="com.user.user_SQL">
  <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
 	<select id="selectUser" parameterType="UserVO" resultType="UserVO">
-	SELECT  USID
-		  , PASSWORD
-		  , USR_NM
-		  , AGE
-		  , MOBLPHON_NO
-		  , EMAIL
-		  , BASS_ADRES
-		  , DETAIL_ADRES
-		  , ZIP
-		  , REG_ID
-		  , REG_DT
-		  , UPDT_ID
-		  , UPDT_DT
-	WHERE USID = #{usid}
+	SELECT USID
+		  ,PASSWORD
+		  ,USR_NM
+		  ,AGE
+		  ,MOBLPHON_NO
+		  ,EMAIL
+		  ,BASS_ADRES
+		  ,DETAIL_ADRES
+		  ,ZIP
+		  ,REG_ID
+		  ,REG_DT
+		  ,UPDT_ID
+		  ,UPDT_DT
+	  FROM TB_USER
+	 <where>
+		 <if test="usid != null and usid != ''">
+		 USID = #{usid}
+		 </if>
+	 </where>
 	</select>
 </mapper>
 

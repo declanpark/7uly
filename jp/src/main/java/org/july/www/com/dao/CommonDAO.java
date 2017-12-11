@@ -8,13 +8,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
-@Repository(value="commonDAO")
+@Repository("commonDAO")
 public class CommonDAO extends SqlSessionDaoSupport {
 
 	@Resource(name = "sqlSession")
 	public void setSqlSessionFactory(SqlSessionFactory sqlSession) {
 		super.setSqlSessionFactory(sqlSession);
 	}
+	
 	/**
      * 입력 처리 SQL mapping 을 실행한다.
      * 

@@ -1,5 +1,7 @@
 package org.july.www.com.web;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.july.www.com.service.CommonService;
@@ -8,7 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CommonController {
@@ -25,15 +29,19 @@ public class CommonController {
 		return "main";
 	}
 	
+	@ResponseBody 
 	@RequestMapping(value="/com/getUser.do")
-	public void getUser() {
+	public Object getUser(@RequestBody UserVO userVO) {
 		
-		UserVO userVO = new UserVO();
-		userVO.setUsid("admin");
+		List<UserVO> userList = commonService.selectUser(userVO);
 		
-		logger.info(commonService.selectUser(userVO).toString());
+		for (UserVO userVO2 : userList) {
+			logger.info(userVO2.toString());
+		}
 		
 		
+		return userList;
 	}
+	
 	
 }
