@@ -15,7 +15,12 @@ public class CommonServiceImpl implements CommonService{
 	@Resource(name="commonDAO")
 	private CommonDAO commonDAO;
 		
+	@SuppressWarnings("unchecked")
 	public List<UserVO> selectUser(UserVO userVO) {
 		return commonDAO.selectList("com.user.user_SQL.selectUser", userVO);
+	}
+	
+	public int insertUser(UserVO userVO) {
+		return commonDAO.insert("com.user.user_SQL.insertUser", userVO);
 	}
 }

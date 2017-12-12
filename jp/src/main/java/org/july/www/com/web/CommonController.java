@@ -32,16 +32,15 @@ public class CommonController {
 	@ResponseBody 
 	@RequestMapping(value="/com/getUser.do")
 	public Object getUser(@RequestBody UserVO userVO) {
-		
-		List<UserVO> userList = commonService.selectUser(userVO);
-		
-		for (UserVO userVO2 : userList) {
-			logger.info(userVO2.toString());
-		}
-		
-		
-		return userList;
+		return commonService.selectUser(userVO);
 	}
 	
-	
+	@ResponseBody 
+	@RequestMapping(value="/com/insertUser.do")
+	public Object insertUser(@RequestBody UserVO userVO) {
+		
+		int cnt = commonService.insertUser(userVO); 
+		
+		return cnt > 0 ? "저장되었습니다." : "저장에 실패했습니다.";
+	}
 }

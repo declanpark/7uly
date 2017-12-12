@@ -24,5 +24,37 @@
 		 </if>
 	 </where>
 	</select>
+	
+	<insert id="insertUser" parameterType="UserVO">
+	INSERT INTO TB_USER ( USID
+					  ,PASSWORD
+					  ,USR_NM
+					  ,AGE
+					  ,MOBLPHON_NO
+					  ,EMAIL
+					  ,BASS_ADRES
+					  ,DETAIL_ADRES
+					  ,ZIP
+					  ,REG_ID
+					  ,REG_DT
+					  ,UPDT_ID
+					  ,UPDT_DT )
+	           VALUES (
+	                   #{usid}       
+,#{password}   
+,#{usrNm}   
+,#{age}      
+,#{moblphonNo} 
+,#{email} 
+,#{bassAdres}  
+,#{detailAdres}
+,#{zip}
+,#{regId}      
+,#{regDt}      
+,#{updtId}     
+,#{updtDt}     
+	                   )
+
+	</insert>
 </mapper>
 
