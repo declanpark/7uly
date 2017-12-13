@@ -1,7 +1,5 @@
 package org.july.www.com.web;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.july.www.com.service.CommonService;
@@ -26,7 +24,21 @@ public class CommonController {
 	@RequestMapping(value="/main.do")
 	public String main(Model model) {
 		logger.info("MAIN.DO");
+		model.addAttribute("title", "메인");
 		return "main";
+	}
+	
+	@RequestMapping(value="/com/moveUserList.do")
+	public String moveUserList(Model model) {
+		logger.info("moveUserList");
+		model.addAttribute("title", "사용자목록");
+		return "/com/userList";
+	}
+	@RequestMapping(value="/com/moveUserView.do")
+	public String moveUserView(Model model) {
+		logger.info("moveUserView");
+		model.addAttribute("title", "사용자상세");
+		return "/com/userView";
 	}
 	
 	@ResponseBody 
